@@ -20,7 +20,7 @@ jobs:
 
       - shell: msys2 {0}
         run: |
-          pacman -Syu
-          pacman -S wget
+          pacman -Syu --noconfirm
+          pacman -S wget --noconfirm
           wget https://github.com/brechtsanders/winlibs_mingw/releases/download/7.5.0-7.0.0-r1/winlibs-i686-posix-dwarf-gcc-7.5.0-mingw-w64-7.0.0-r1.7z
            
