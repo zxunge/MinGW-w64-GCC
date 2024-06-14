@@ -16,11 +16,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
+      - uses: msys2/setup-msys2@v2
 
-      - name: Set up MinGW
-        uses: egor-tensin/setup-mingw@v2
-        with:
-          platform: x86
-          static: 0
-          version: 10.5.0
+      - shell: msys2 {0}
+        run: |
+          pacman -Syu
+          pacman -S wget
+          wget https://github.com/brechtsanders/winlibs_mingw/releases/download/7.5.0-7.0.0-r1/winlibs-i686-posix-dwarf-gcc-7.5.0-mingw-w64-7.0.0-r1.7z
            
