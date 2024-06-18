@@ -13,7 +13,6 @@ NAME=${ARCH}-${GCC_VERSION}-${THREADS}-${EXCEPTIONS}-rev${REVNO}
 
 cp -rf * /home/
 cd /home
-mv -f /mingw32 /bmingw32
 rm -rf /c/mingw64/bin
 
 "/c/Program Files/Git/bin/git.exe" clone https://github.com/niXman/mingw-builds.git
