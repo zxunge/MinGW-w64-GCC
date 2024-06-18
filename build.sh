@@ -13,10 +13,10 @@ NAME=${ARCH}-${GCC_VERSION}-${THREADS}-${EXCEPTIONS}-rev${REVNO}
 
 cp -rf * /home/
 cd /home
-rm -rf /mingw32
+mv -f /mingw32 /bmingw32
 rm -rf /c/mingw64/bin
 
-git clone https://github.com/niXman/mingw-builds.git
+"/c/Program Files/Git/bin/git.exe" clone https://github.com/niXman/mingw-builds.git
 
 cd mingw-builds
 ./build --mode=gcc-${GCC_VERSION}          \
@@ -24,7 +24,6 @@ cd mingw-builds
         --buildroot=${BUILDROOT}           \
         --exceptions=${EXCEPTIONS}         \
         --use-lto                          \
-        --dyn-deps                         \
         --rt-version=v${RT_VERSION}        \
         --rev=${REVNO}                     \
         --threads=${THREADS}               \
