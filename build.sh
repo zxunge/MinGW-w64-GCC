@@ -20,14 +20,14 @@ git clone https://github.com/niXman/mingw-builds.git
 
 cd mingw-builds
 ./build --mode=gcc-${GCC_VERSION}          \
-        --arch=ARCH                        \
-        --buildroot=BUILDROOT              \
-        --exceptions=EXCEPTIONS            \
+        --arch=${ARCH}                     \
+        --buildroot=${BUILDROOT}           \
+        --exceptions=${EXCEPTIONS}         \
         --use-lto                          \
         --dyn-deps                         \
         -rt-version=v${RT_VERSION}         \
         --rev=${REVNO}                     \
-        --threads=THREADS                  \
+        --threads=${THREADS}               \
         --enable-languages=c,c++,fortran
 
 7zr a -mx9 -mqs=on -mmt=on /home/${NAME}.7z ${BUILDROOT}/${ARCH}-${GCC_VERSION}-release-${THREADS}-${EXCEPTIONS}-rev${REVNO}/archives/*
