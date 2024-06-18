@@ -23,5 +23,30 @@ jobs:
             git
           
 
-      - shell: msys2 {0}
+      - name: build
+        id: build
+        shell: msys2 {0}
         run: ./build.sh
+
+      - name: release
+        id: release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.build.outputs.RELEASE_NAME }}
+          release_name: ${{ steps.build.outputs.RELEASE_NAME }}
+          body: |
+            GCC v${{ steps.build.outputs.GCC_VERSION }}
+            MinGW-w64 v${{ steps.build.outputs.MINGW_VERSION }}
+
+      - name: upload
+        id: upload
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release.outputs.upload_url }}
+          asset_path: ${{ steps.build.outputs.OUTPUT_BINARY }}
+          asset_name: ${{ steps.build.outputs.OUTPUT_NAME }}
+          asset_content_type: application/x-7z-compressed
