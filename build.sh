@@ -24,6 +24,7 @@ cd mingw-builds
         --exceptions=${EXCEPTIONS}         \
         --use-lto                          \
         --rt-version=v${RT_VERSION}        \
+        --with-default-msvcrt=ucrt         \
         --rev=${REVNO}                     \
         --threads=${THREADS}               \
         --enable-languages=c,c++,fortran
