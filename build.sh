@@ -4,7 +4,7 @@ set -eux
 
 BUILDROOT=/home/gcc-build
 ARCH=i686
-EXCEPTIONS=sjlj
+EXCEPTIONS=dwarf
 THREADS=posix
 GCC_VERSION=13.2.0
 RT_VERSION=11.0.0
