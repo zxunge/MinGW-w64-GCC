@@ -15,7 +15,7 @@ cp -rf * /home/
 cd /home
 
 wget -q https://github.com/brechtsanders/winlibs_mingw/releases/download/14.1.0posix-18.1.7-12.0.0-ucrt-r2/winlibs-i686-posix-dwarf-gcc-14.1.0-mingw-w64ucrt-12.0.0-r2.zip
-unzip -q winlibs-i686-posix-dwarf-gcc-14.1.0-mingw-w64ucrt-12.0.0-r2.zip
+unzip -q winlibs-i686-posix-dwarf-gcc-14.1.0-mingw-w64ucrt-12.0.0-r2.zip -d /home/build-toolchain
 
 git clone https://github.com/niXman/mingw-builds.git
 
@@ -26,7 +26,7 @@ cd mingw-builds
         --exceptions=${EXCEPTIONS}         \
         --use-lto                          \
         --bootstrapall                     \
-        --provided-toolchain=/home/mingw32/bin  \
+        --provided-toolchain=/home/build-toolchain  \
         --rt-version=v${RT_VERSION}        \
         --with-default-msvcrt=ucrt         \
         --rev=${REVNO}                     \
