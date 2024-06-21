@@ -20,17 +20,18 @@ unzip -q winlibs-i686-posix-dwarf-gcc-14.1.0-mingw-w64ucrt-12.0.0-r2.zip -d /hom
 git clone https://github.com/niXman/mingw-builds.git
 
 cd mingw-builds
-./build --mode=gcc-${GCC_VERSION}          \
-        --arch=${ARCH}                     \
-        --buildroot=${BUILDROOT}           \
-        --exceptions=${EXCEPTIONS}         \
-        --use-lto                          \
-        --bootstrapall                     \
+./build --mode=gcc-${GCC_VERSION}                   \
+        --arch=${ARCH}                              \
+        --buildroot=${BUILDROOT}                    \
+        --exceptions=${EXCEPTIONS}                  \
+        --use-lto                                   \
+        --bootstrapall                              \
         --provided-toolchain=/home/build-toolchain  \
-        --rt-version=v${RT_VERSION}        \
-        --with-default-msvcrt=ucrt         \
-        --rev=${REVNO}                     \
-        --threads=${THREADS}               \
+        --with-default-win32-winnt=v6.1             \
+        --rt-version=v${RT_VERSION}                 \
+        --with-default-msvcrt=ucrt                  \
+        --rev=${REVNO}                              \
+        --threads=${THREADS}                        \
         --enable-languages=c,c++,fortran
 
 7zr a -mx9 -mqs=on -mmt=on /home/${NAME}.7z ${BUILDROOT}/${ARCH}-${GCC_VERSION}-release-${THREADS}-${EXCEPTIONS}-rev${REVNO}/archives/*
