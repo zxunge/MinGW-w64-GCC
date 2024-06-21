@@ -6,8 +6,8 @@ BUILDROOT=/home/gcc-build
 ARCH=i686
 EXCEPTIONS=dwarf
 THREADS=posix
-GCC_VERSION=13.2.0
-RT_VERSION=11.0.0
+GCC_VERSION=10.5.0
+RT_VERSION=7.0.0
 REVNO=0
 NAME=${ARCH}-${GCC_VERSION}-${THREADS}-${EXCEPTIONS}-rev${REVNO}
 
@@ -22,6 +22,7 @@ cd mingw-builds
         --buildroot=${BUILDROOT}           \
         --exceptions=${EXCEPTIONS}         \
         --use-lto                          \
+        --dyn-deps                         \
         --rt-version=v${RT_VERSION}        \
         --with-default-msvcrt=ucrt         \
         --rev=${REVNO}                     \
