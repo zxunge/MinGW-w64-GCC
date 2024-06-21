@@ -22,6 +22,7 @@ cd mingw-builds
         --buildroot=${BUILDROOT}           \
         --exceptions=${EXCEPTIONS}         \
         --use-lto                          \
+        --bootstrapall                     \
         --rt-version=v${RT_VERSION}        \
         --with-default-msvcrt=ucrt         \
         --rev=${REVNO}                     \
