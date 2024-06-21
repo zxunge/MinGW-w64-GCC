@@ -27,7 +27,7 @@ cd mingw-builds
         --use-lto                                   \
         --bootstrapall                              \
         --provided-toolchain=/home/build-toolchain  \
-        --with-default-win32-winnt=v6.1             \
+        --with-default-win32-winnt=6.1             \
         --rt-version=v${RT_VERSION}                 \
         --with-default-msvcrt=ucrt                  \
         --rev=${REVNO}                              \
