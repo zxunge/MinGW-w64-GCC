@@ -20,15 +20,12 @@ jobs:
             git
             unzip
             cmake
-            make
-            gettext
             xz
-            patch
             p7zip
             curl
             m4
             zstd
-            texinfo
+            base-devel
           
       - name: build
         id: build
