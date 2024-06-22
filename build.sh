@@ -75,7 +75,7 @@ wget -q https://github.com/brechtsanders/winlibs_mingw/releases/download/14.1.0$
 unzip -q winlibs-${ARCH}-${THREADS}-${EXCEPTIONS}-gcc-14.1.0-mingw-w64${RT}-12.0.0-r2.zip -d /
 
 get https://github.com/facebook/zstd/archive/refs/tags/v${ZSTD_VERSION}.zip
-get https://ftp.gnu.org/gnu/gmp/gmp-${GMP_VERSION}.tar.gz
+get https://ftp.gnu.org/gnu/gmp/gmp-${GMP_VERSION}.tar.xz
 get https://ftp.gnu.org/gnu/mpfr/mpfr-${MPFR_VERSION}.tar.gz
 get https://ftp.gnu.org/gnu/mpc/mpc-${MPC_VERSION}.tar.gz
 get https://libisl.sourceforge.io/isl-${ISL_VERSION}.tar.gz
