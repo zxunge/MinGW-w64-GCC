@@ -101,7 +101,6 @@ FOLDER="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 mkdir -p ${BUILD}/zstd && pushd ${BUILD}/zstd
 cmake ${SOURCE}/zstd-${ZSTD_VERSION}/build/cmake \
-  -G "Unix Makefiles"                            \
   -DCMAKE_BUILD_TYPE=Release                     \
   -DCMAKE_SYSTEM_NAME=Windows                    \
   -DCMAKE_INSTALL_PREFIX=${PREFIX}               \
@@ -115,7 +114,7 @@ cmake ${SOURCE}/zstd-${ZSTD_VERSION}/build/cmake \
   -DZSTD_BUILD_CONTRIB=OFF                       \
   -DZSTD_BUILD_TESTS=OFF
 make -j$(nproc)
-mingw32-make install
+make install
 popd
 
 mkdir -p ${BUILD}/gmp && pushd ${BUILD}/gmp
