@@ -28,6 +28,7 @@ jobs:
             curl
             m4
             zstd
+            texinfo
           
       - name: build
         id: build
