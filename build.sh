@@ -108,6 +108,7 @@ make -j$(nproc)
 make install
 pushd $(pwd)
 cd ${BOOTSTRAP}
+mkdir -p mingw
 cp -rf $(ls | grep -v mingw | xargs) mingw/
 popd
 popd
