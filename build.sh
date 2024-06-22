@@ -101,7 +101,7 @@ make install
 popd
 
 mkdir -p ${BUILD}/x-mingw-w64-headers && pushd ${BUILD}/x-mingw-w64-headers
-${SOURCE}/mingw-w64-v${MINGW_VERSION}/mingw-w64-headers/configure \
+${SOURCE}/mingw-w64-v${RT_VERSION}/mingw-w64-headers/configure \
   --prefix=${BOOTSTRAP}                                           \
   --host=${TARGET}
 make -j$(nproc)
@@ -132,7 +132,7 @@ popd
 export PATH=${BOOTSTRAP}/bin:$PATH
 
 mkdir -p ${BUILD}/x-mingw-w64-crt && pushd ${BUILD}/x-mingw-w64-crt
-${SOURCE}/mingw-w64-v${MINGW_VERSION}/mingw-w64-crt/configure \
+${SOURCE}/mingw-w64-v${RT_VERSION}/mingw-w64-crt/configure \
   --prefix=${BOOTSTRAP}                                       \
   --with-sysroot=${BOOTSTRAP}                                 \
   --host=${TARGET}                                            \
@@ -144,7 +144,7 @@ make install
 popd
 
 mkdir -p ${BUILD}/x-mingw-w64-winpthreads && pushd ${BUILD}/x-mingw-w64-winpthreads
-${SOURCE}/mingw-w64-v${MINGW_VERSION}/mingw-w64-libraries/winpthreads/configure \
+${SOURCE}/mingw-w64-v${RT_VERSION}/mingw-w64-libraries/winpthreads/configure \
   --prefix=${BOOTSTRAP}                                                         \
   --with-sysroot=${BOOTSTRAP}                                                   \
   --host=${TARGET}                                                              \
@@ -250,7 +250,7 @@ make install
 popd
 
 mkdir -p ${BUILD}/mingw-w64-headers && pushd ${BUILD}/mingw-w64-headers
-${SOURCE}/mingw-w64-v${MINGW_VERSION}/mingw-w64-headers/configure \
+${SOURCE}/mingw-w64-v${RT_VERSION}/mingw-w64-headers/configure \
   --prefix=${FINAL}/${TARGET}                                     \
   --host=${TARGET}
 make -j$(nproc)
@@ -259,7 +259,7 @@ ln -sTf ${FINAL}/${TARGET} ${FINAL}/mingw
 popd
 
 mkdir -p ${BUILD}/mingw-w64-crt && pushd ${BUILD}/mingw-w64-crt
-${SOURCE}/mingw-w64-v${MINGW_VERSION}/mingw-w64-crt/configure \
+${SOURCE}/mingw-w64-v${RT_VERSION}/mingw-w64-crt/configure \
   --prefix=${FINAL}/${TARGET}                                 \
   --with-sysroot=${FINAL}/${TARGET}                           \
   --host=${TARGET}                                            \
@@ -299,7 +299,7 @@ make install
 popd
 
 mkdir -p ${BUILD}/mingw-w64-winpthreads && pushd ${BUILD}/mingw-w64-winpthreads
-${SOURCE}/mingw-w64-v${MINGW_VERSION}/mingw-w64-libraries/winpthreads/configure \
+${SOURCE}/mingw-w64-v${RT_VERSION}/mingw-w64-libraries/winpthreads/configure \
   --prefix=${FINAL}/${TARGET}                                                   \
   --with-sysroot=${FINAL}/${TARGET}                                             \
   --host=${TARGET}                                                              \
