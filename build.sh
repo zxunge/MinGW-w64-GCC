@@ -115,7 +115,7 @@ cmake ${SOURCE}/zstd-${ZSTD_VERSION}/build/cmake \
   -DZSTD_BUILD_CONTRIB=OFF                       \
   -DZSTD_BUILD_TESTS=OFF
 make -j$(nproc)
-make install
+mingw32-make install
 popd
 
 mkdir -p ${BUILD}/gmp && pushd ${BUILD}/gmp
