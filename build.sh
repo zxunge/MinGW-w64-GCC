@@ -128,7 +128,8 @@ ${SOURCE}/gcc-${GCC_VERSION}/configure \
   --enable-large-address-aware         \
   --disable-libstdcxx-pch              \
   --disable-libstdcxx-verbose          \
-  ${EXTRA_GCC_ARGS}
+  ${EXTRA_GCC_ARGS}                    \
+  --with-{gmp,mpfr,mpc,isl}=/mingw32
 make -j$(nproc) all-gcc
 make install-gcc
 popd
