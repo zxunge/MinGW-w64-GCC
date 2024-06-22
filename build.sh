@@ -72,7 +72,7 @@ FINAL=/home/temp/${NAME}
 
 # Toolchain used when compiling
 wget -q https://github.com/brechtsanders/winlibs_mingw/releases/download/14.1.0${THREADS}-18.1.7-12.0.0-${RT}-r2/winlibs-${ARCH}-${THREADS}-${EXCEPTIONS}-gcc-14.1.0-mingw-w64${RT}-12.0.0-r2.zip
-unzip -q winlibs-${ARCH}-${THREADS}-${EXCEPTIONS}-gcc-14.1.0-mingw-w64${RT}-12.0.0-r2.zip -d /
+unzip -qo winlibs-${ARCH}-${THREADS}-${EXCEPTIONS}-gcc-14.1.0-mingw-w64${RT}-12.0.0-r2.zip -d /
 
 # Copy gmp, mpfr, isl, mpc headers to its include dir
 #cp -f /usr/include/gmp.h             \
