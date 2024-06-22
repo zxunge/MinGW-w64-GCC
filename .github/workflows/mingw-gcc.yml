@@ -19,7 +19,6 @@ jobs:
           install: >-
             git
             unzip
-            cmake
             xz
             p7zip
             curl
