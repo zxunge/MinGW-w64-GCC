@@ -47,6 +47,9 @@ function get()
     zst)
       tar -I zstd -xf  ${FILE}
       ;;
+    zip)
+      unzip -q ${FILE}
+      ;;
     *)
       exit 1
       ;;
@@ -74,7 +77,7 @@ FINAL=/home/temp/${NAME}
 wget -q https://github.com/brechtsanders/winlibs_mingw/releases/download/14.1.0${THREADS}-18.1.7-12.0.0-${RT}-r2/winlibs-${ARCH}-${THREADS}-${EXCEPTIONS}-gcc-14.1.0-mingw-w64${RT}-12.0.0-r2.zip
 unzip -q winlibs-${ARCH}-${THREADS}-${EXCEPTIONS}-gcc-14.1.0-mingw-w64${RT}-12.0.0-r2.zip -d /
 
-get https://github.com/facebook/zstd/releases/download/v${ZSTD_VERSION}/zstd-${ZSTD_VERSION}.tar.zst
+get https://github.com/facebook/zstd/releases/download/v${ZSTD_VERSION}/zstd-${ZSTD_VERSION}.zip
 get https://ftp.gnu.org/gnu/gmp/gmp-${GMP_VERSION}.tar.gz
 get https://ftp.gnu.org/gnu/mpfr/mpfr-${MPFR_VERSION}.tar.gz
 get https://ftp.gnu.org/gnu/mpc/mpc-${MPC_VERSION}.tar.gz
