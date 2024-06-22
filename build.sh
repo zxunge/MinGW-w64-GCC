@@ -74,6 +74,17 @@ FINAL=/home/temp/${NAME}
 wget -q https://github.com/brechtsanders/winlibs_mingw/releases/download/14.1.0${THREADS}-18.1.7-12.0.0-${RT}-r2/winlibs-${ARCH}-${THREADS}-${EXCEPTIONS}-gcc-14.1.0-mingw-w64${RT}-12.0.0-r2.zip
 unzip -q winlibs-${ARCH}-${THREADS}-${EXCEPTIONS}-gcc-14.1.0-mingw-w64${RT}-12.0.0-r2.zip -d /
 
+# Copy gmp, mpfr, isl, mpc headers to its include dir
+#cp -f /usr/include/gmp.h             \
+#      /usr/include/gmpxx.h           \
+#      /usr/include/mpf2mpfr.h        \
+#      /usr/include/mpfr.h            \
+#      /mingw32/${TARGET}/include/
+#cp -f /usr/lib/libgmp.dll.a          \
+#      /usr/lib/libgmpxx.dll.a        \ 
+#      /usr/lib/libmpfr.dll.a         \
+#      /mingw32/${TARGET}/lib/
+
 get https://github.com/facebook/zstd/archive/refs/tags/v${ZSTD_VERSION}.zip
 get https://ftp.gnu.org/gnu/gmp/gmp-${GMP_VERSION}.tar.xz
 get https://ftp.gnu.org/gnu/mpfr/mpfr-${MPFR_VERSION}.tar.gz
