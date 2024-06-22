@@ -25,6 +25,7 @@ jobs:
             m4
             zstd
             base-devel
+            cmake
             gmp-devel
             mpfr-devel
             isl-devel
