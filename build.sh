@@ -109,6 +109,7 @@ mkdir -p ${BUILD}/gmp && pushd ${BUILD}/gmp
 ${SOURCE}/gmp-${GMP_VERSION}/configure \
   --prefix=${PREFIX}                   \
   --host=${TARGET}                     \
+  --build=${TARGET}                    \
   --disable-shared                     \
   --enable-static                      \
   --enable-fat
