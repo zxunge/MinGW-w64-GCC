@@ -83,6 +83,8 @@ cp -rf /usr/include/gmp.h             \
        /usr/include/isl               \
        /mingw32/${TARGET}/include/
 
+cp /mingw32/bin/gcc.exe /mingw32/bin/cc.exe
+
 get https://github.com/facebook/zstd/archive/refs/tags/v${ZSTD_VERSION}.zip
 get https://ftp.gnu.org/gnu/gmp/gmp-${GMP_VERSION}.tar.xz
 get https://ftp.gnu.org/gnu/mpfr/mpfr-${MPFR_VERSION}.tar.gz
