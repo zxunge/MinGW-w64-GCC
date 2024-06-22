@@ -70,7 +70,7 @@ PREFIX=/home/temp/prefix/${TARGET}
 # final installation folder
 FINAL=/home/temp/${NAME}
 
-# Used toolchain
+# Toolchain used when compiling
 wget -q https://github.com/brechtsanders/winlibs_mingw/releases/download/14.1.0${THREADS}-18.1.7-12.0.0-${RT}-r2/winlibs-${ARCH}-${THREADS}-${EXCEPTIONS}-gcc-14.1.0-mingw-w64${RT}-12.0.0-r2.zip
 unzip -q winlibs-${ARCH}-${THREADS}-${EXCEPTIONS}-gcc-14.1.0-mingw-w64${RT}-12.0.0-r2.zip -d /
 
