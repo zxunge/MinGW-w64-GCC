@@ -64,9 +64,6 @@ SOURCE=/home/temp/source
 # place where build for specific target is done
 BUILD=/home/temp/build/${TARGET}
 
-# place where bootstrap compiler is built
-BOOTSTRAP=/home/temp/bootstrap/${TARGET}
-
 # place where build dependencies are installed
 PREFIX=/home/temp/prefix/${TARGET}
 
@@ -88,81 +85,6 @@ get https://ftp.gnu.org/gnu/gcc/gcc-${GCC_VERSION}/gcc-${GCC_VERSION}.tar.gz
 get https://sourceforge.net/projects/mingw-w64/files/mingw-w64/mingw-w64-release/mingw-w64-v${RT_VERSION}.tar.bz2
 
 FOLDER="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-
-mkdir -p ${BUILD}/x-binutils && pushd ${BUILD}/x-binutils
-${SOURCE}/binutils-${BINUTILS_VERSION}/configure \
-  --prefix=${BOOTSTRAP}                          \
-  --with-sysroot=${BOOTSTRAP}                    \
-  --target=${TARGET}                             \
-  --disable-multilib                             \
-  --disable-werror
-make -j$(nproc)
-make install
-popd
-
-mkdir -p ${BUILD}/x-mingw-w64-headers && pushd ${BUILD}/x-mingw-w64-headers
-${SOURCE}/mingw-w64-v${RT_VERSION}/mingw-w64-headers/configure \
-  --prefix=${BOOTSTRAP}                                           \
-  --host=${TARGET}
-make -j$(nproc)
-make install
-pushd $(pwd)
-cd ${BOOTSTRAP}
-mkdir -p mingw
-cp -rf $(ls | grep -v mingw | xargs) mingw/
-popd
-popd
-
-mkdir -p ${BUILD}/x-gcc && pushd ${BUILD}/x-gcc
-${SOURCE}/gcc-${GCC_VERSION}/configure \
-  --prefix=${BOOTSTRAP}                \
-  --with-sysroot=${BOOTSTRAP}          \
-  --target=${TARGET}                   \
-  --enable-shared                      \
-  --disable-multilib                   \
-  --disable-werror                     \
-  --disable-libgomp                    \
-  --enable-languages=c,c++,fortran,d   \
-  --enable-threads=posix               \
-  --enable-checking=release            \
-  --enable-large-address-aware         \
-  --disable-libstdcxx-pch              \
-  --disable-libstdcxx-verbose          \
-  ${EXTRA_GCC_ARGS}                    \
-  --with-{gmp,mpfr,mpc,isl}=/mingw32
-make -j$(nproc) all-gcc
-make install-gcc
-popd
-
-export PATH=${BOOTSTRAP}/bin:$PATH
-
-mkdir -p ${BUILD}/x-mingw-w64-crt && pushd ${BUILD}/x-mingw-w64-crt
-${SOURCE}/mingw-w64-v${RT_VERSION}/mingw-w64-crt/configure \
-  --prefix=${BOOTSTRAP}                                       \
-  --with-sysroot=${BOOTSTRAP}                                 \
-  --host=${TARGET}                                            \
-  --disable-dependency-tracking                               \
-  --enable-warnings=0                                         \
-  ${EXTRA_CRT_ARGS}
-make -j$(nproc)
-make install
-popd
-
-mkdir -p ${BUILD}/x-mingw-w64-winpthreads && pushd ${BUILD}/x-mingw-w64-winpthreads
-${SOURCE}/mingw-w64-v${RT_VERSION}/mingw-w64-libraries/winpthreads/configure \
-  --prefix=${BOOTSTRAP}                                                         \
-  --with-sysroot=${BOOTSTRAP}                                                   \
-  --host=${TARGET}                                                              \
-  --disable-dependency-tracking                                                 \
-  --enable-shared
-make -j$(nproc)
-make install
-popd
-
-pushd ${BUILD}/x-gcc
-make -j$(nproc)
-make install
-popd
 
 mkdir -p ${BUILD}/zstd && pushd ${BUILD}/zstd
 cmake ${SOURCE}/zstd-${ZSTD_VERSION}/build/cmake \
