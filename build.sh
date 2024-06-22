@@ -106,7 +106,10 @@ ${SOURCE}/mingw-w64-v${RT_VERSION}/mingw-w64-headers/configure \
   --host=${TARGET}
 make -j$(nproc)
 make install
-ln -sTf ${BOOTSTRAP} ${BOOTSTRAP}/mingw
+pushd $(pwd)
+cd ${BOOTSTRAP}
+cp -rf $(ls | grep -v mingw | xargs) mingw/
+popd
 popd
 
 mkdir -p ${BUILD}/x-gcc && pushd ${BUILD}/x-gcc
@@ -308,12 +311,6 @@ ${SOURCE}/mingw-w64-v${RT_VERSION}/mingw-w64-libraries/winpthreads/configure \
 make -j$(nproc)
 make install
 popd
-
-
-rm -rf ${FINAL}/bin/${TARGET}-*
-rm -rf ${FINAL}/bin/ld.bfd.exe ${FINAL}/${TARGET}/bin/ld.bfd.exe
-rm -rf ${FINAL}/lib/bfd-plugins/libdep.dll.a
-rm -rf ${FINAL}/share
 
 find ${FINAL} -name '*.exe' -print0 | xargs -0 -n 8 -P 2 ${TARGET}-strip --strip-unneeded
 find ${FINAL} -name '*.dll' -print0 | xargs -0 -n 8 -P 2 ${TARGET}-strip --strip-unneeded
