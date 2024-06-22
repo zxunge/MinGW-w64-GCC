@@ -19,6 +19,14 @@ jobs:
           install: >-
             git
             unzip
+            cmake
+            make
+            gettext
+            xz
+            patch
+            p7zip
+            curl
+            m4
           
       - name: build
         id: build
