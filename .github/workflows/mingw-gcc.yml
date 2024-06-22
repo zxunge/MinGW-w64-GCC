@@ -25,10 +25,10 @@ jobs:
             m4
             zstd
             base-devel
-            gmp
-            mpfr
-            isl
-            mpc
+            gmp-devel
+            mpfr-devel
+            isl-devel
+            mpc-devel
           
       - name: build
         id: build
