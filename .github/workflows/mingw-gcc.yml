@@ -25,10 +25,10 @@ jobs:
             m4
             zstd
             base-devel
-            mingw-w64-i686-gmp
-            mingw-w64-i686-mpfr
-            mingw-w64-i686-isl
-            mingw-w64-i686-mpc
+            gmp
+            mpfr
+            isl
+            mpc
           
       - name: build
         id: build
