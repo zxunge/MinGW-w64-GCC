@@ -73,7 +73,7 @@ FINAL=/home/temp/${NAME}
 # Toolchain used when compiling
 #wget -q https://github.com/brechtsanders/winlibs_mingw/releases/download/14.1.0${THREADS}-18.1.7-12.0.0-${RT}-r2/winlibs-${ARCH}-${THREADS}-${EXCEPTIONS}-gcc-14.1.0-mingw-w64${RT}-12.0.0-r2.zip
 #unzip -qo winlibs-${ARCH}-${THREADS}-${EXCEPTIONS}-gcc-14.1.0-mingw-w64${RT}-12.0.0-r2.zip -d /
-https://github.com/niXman/mingw-builds-binaries/releases/download/13.2.0-rt_v11-rev0/i686-13.2.0-release-win32-dwarf-ucrt-rt_v11-rev0.7z
+wget https://github.com/niXman/mingw-builds-binaries/releases/download/13.2.0-rt_v11-rev0/i686-13.2.0-release-win32-dwarf-ucrt-rt_v11-rev0.7z
 7z x i686-13.2.0-release-win32-dwarf-ucrt-rt_v11-rev0.7z -o/
 
 # Copy gmp, mpfr, isl, mpc headers to its include dir
