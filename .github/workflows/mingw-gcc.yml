@@ -25,6 +25,11 @@ jobs:
             m4
             zstd
             patch
+            make
+            gmp
+            mpfr
+            mpc
+            isl
             gmp-devel
             mpfr-devel
             isl-devel
