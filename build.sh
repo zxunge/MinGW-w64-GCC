@@ -71,19 +71,19 @@ PREFIX=/home/temp/prefix/${TARGET}
 FINAL=/home/temp/${NAME}
 
 # Toolchain used when compiling
-#wget -q https://github.com/brechtsanders/winlibs_mingw/releases/download/14.1.0${THREADS}-18.1.7-12.0.0-${RT}-r2/winlibs-${ARCH}-${THREADS}-${EXCEPTIONS}-gcc-14.1.0-mingw-w64${RT}-12.0.0-r2.zip
-#unzip -qo winlibs-${ARCH}-${THREADS}-${EXCEPTIONS}-gcc-14.1.0-mingw-w64${RT}-12.0.0-r2.zip -d /
-wget https://github.com/niXman/mingw-builds-binaries/releases/download/13.2.0-rt_v11-rev0/i686-13.2.0-release-win32-dwarf-ucrt-rt_v11-rev0.7z
-7z x i686-13.2.0-release-win32-dwarf-ucrt-rt_v11-rev0.7z -o/
+wget -q https://github.com/brechtsanders/winlibs_mingw/releases/download/14.1.0${THREADS}-18.1.7-12.0.0-${RT}-r2/winlibs-${ARCH}-${THREADS}-${EXCEPTIONS}-gcc-14.1.0-mingw-w64${RT}-12.0.0-r2.zip
+unzip -qo winlibs-${ARCH}-${THREADS}-${EXCEPTIONS}-gcc-14.1.0-mingw-w64${RT}-12.0.0-r2.zip -d /
+#wget https://github.com/niXman/mingw-builds-binaries/releases/download/13.2.0-rt_v11-rev0/i686-13.2.0-release-win32-dwarf-ucrt-rt_v11-rev0.7z
+#7z x i686-13.2.0-release-win32-dwarf-ucrt-rt_v11-rev0.7z -o/
 
 # Copy gmp, mpfr, isl, mpc headers to its include dir
-cp -rf /usr/include/gmp.h             \
-       /usr/include/gmpxx.h           \
-       /usr/include/mpf2mpfr.h        \
-       /usr/include/mpfr.h            \
-       /usr/include/mpc.h             \
-       /usr/include/isl               \
-       /mingw32/${TARGET}/include/
+#cp -rf /usr/include/gmp.h             \
+#       /usr/include/gmpxx.h           \
+#       /usr/include/mpf2mpfr.h        \
+#       /usr/include/mpfr.h            \
+#       /usr/include/mpc.h             \
+#       /usr/include/isl               \
+#       /mingw32/${TARGET}/include/
 
 cp /mingw32/bin/gcc.exe /mingw32/bin/cc.exe
 
@@ -120,8 +120,6 @@ popd
 mkdir -p ${BUILD}/gmp && pushd ${BUILD}/gmp
 ${SOURCE}/gmp-${GMP_VERSION}/configure \
   --prefix=${PREFIX}                   \
-  --host=${TARGET}                     \
-  --build=${TARGET}                    \
   --disable-shared                     \
   --enable-static                      \
   --enable-fat
