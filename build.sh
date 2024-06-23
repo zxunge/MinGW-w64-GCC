@@ -101,6 +101,7 @@ FOLDER="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 mkdir -p ${BUILD}/zstd && pushd ${BUILD}/zstd
 cmake ${SOURCE}/zstd-${ZSTD_VERSION}/build/cmake \
+  -G "Unix Makefiles"                            \
   -DCMAKE_BUILD_TYPE=Release                     \
   -DCMAKE_SYSTEM_NAME=Windows                    \
   -DCMAKE_INSTALL_PREFIX=${PREFIX}               \
