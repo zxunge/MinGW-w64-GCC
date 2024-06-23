@@ -24,8 +24,7 @@ jobs:
             curl
             m4
             zstd
-            base-devel
-            cmake
+            patch
             gmp-devel
             mpfr-devel
             isl-devel
